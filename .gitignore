@@ -1,5 +1,5 @@
-/src/main.o
-/.vscode
-/lib
-/output
-/Makefile
+/src/main.o/
+/.vscode/
+/lib/
+/output/
+Makefile
