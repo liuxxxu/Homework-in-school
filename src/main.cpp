@@ -439,37 +439,6 @@
 // }
 
 //用指针实现数组逆序
-// #include <iostream>
-// using namespace std;
-// void reverse(int *p, int n)
-// {
-//     int *q = n-p - 1;
-//     while (p < q)
-//     {
-//         int t = *p;
-//         *p = *q;
-//         *q = t;
-//         p++;
-//         q--;
-//     }
-// }
-// int main()
-// {
-//     const int n = 10;
-//     int a[n], i;
-//     for (i = 0; i < n; i++)
-//     {
-//         cin >> a[n];
-//     }
-//     reverse(a, n);
-//     for (i = 0; i < n; i++)
-//     {
-//         cout << a[i] << " ";
-//     }
-//     system("pause");
-//     return 0;
-// }
-
 #include <iostream>
 using namespace std;
 void restre(int *p, int n)
