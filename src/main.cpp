@@ -443,20 +443,21 @@
 using namespace std;
 void restre(int *p, int n)
 {
-    int *q = p + n - 1;
-    for (; p < q; p++, q--)
-    {
-        int t = *p;
-        *p = *q;
-        *q = t;
-    }
+	int *q = p + n - 1;
+	for (; p < q; p++, q--)
+	{
+		int t = *p;
+		*p = *q;
+		*q = t;
+	}
 }
 int main()
 {
-    int a[5] = {1, 2, 3, 4, 5};
-    int i;
-    restre(a, 5);
-    for (i = 0; i < 5; i++)
-        cout << a[i] << " ";
-    return 0;
+	int a[5] = {1, 2, 3, 4, 5};
+	int i;
+	restre(a, 5);
+	for (i = 0; i < 5; i++)
+		cout << a[i] << " ";
+	system("pause");
+	return 0;
 }
