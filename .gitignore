@@ -1,5 +1,8 @@
-/src/main.o/
+*.exe
+*.o
+*.gitignore
 /.vscode/
 /lib/
 /output/
+/include/
 Makefile
