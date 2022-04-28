@@ -441,23 +441,23 @@
 //用指针实现数组逆序
 #include <iostream>
 using namespace std;
-void restre(int *p, int n)
+void restre(int *start, int n)
 {
-	int *q = p + n - 1;
-	for (; p < q; p++, q--)
+	int *end = start + n - 1;
+	while (start < end)
 	{
-		int t = *p;
-		*p = *q;
-		*q = t;
+		int t = *start;
+		*start = *end;
+		*end = t;
+		start++;
+		end--;
 	}
 }
 int main()
 {
 	int a[5] = {1, 2, 3, 4, 5};
-	int i;
 	restre(a, 5);
-	for (i = 0; i < 5; i++)
+	for (int i = 0; i < 5; i++)
 		cout << a[i] << " ";
-	system("pause");
 	return 0;
 }
