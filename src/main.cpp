@@ -229,171 +229,211 @@
 // 	return 0;
 // }
 
-#include <iostream>
-using namespace std;
-int main()
-{
-    const int n = 10;
-    int arr[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - 1 - i; j++)
-        {
-            if (arr[j + 1] < arr[j])
-            {
+//冒泡排序对10个数进行排序并输出
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     const int n = 10;
+//     int arr[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+//     for (int i = 0; i < n - 1; i++)
+//     {
+//         for (int j = 0; j < n - 1 - i; j++)
+//         {
+//             if (arr[j + 1] < arr[j])
+//             {
+//                 int temp = arr[j + 1];
+//                 arr[j + 1] = arr[j];
+//                 arr[j] = temp;
+//             }
+//         }
+//     }
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+//     return 0;
+// }
 
-                int temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    return 0;
-}
+//冒泡排序对10个数进行排序并输出到m.txt文件中
+// #include <iostream>
+// #include <fstream>
+// using namespace std;
+// int main()
+// {
+//     const int n = 10;
+//     int arr[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+//     for (int i = 0; i < n - 1; i++)
+//     {
+//         for (int j = 0; j < n - 1 - i; j++)
+//         {
+//             if (arr[j + 1] < arr[j])
+//             {
+//                 int temp = arr[j + 1];
+//                 arr[j + 1] = arr[j];
+//                 arr[j] = temp;
+//             }
+//         }
+//     }
+//     ofstream out("m.txt");
+//     for (int i = 0; i < n; i++)
+//     {
+//         out << arr[i] << " ";
+//     }
+//     out.close();
+//     return 0;
+// }
 
-#include <iostream>
-#include <fstream>
-using namespace std;
-int main()
-{
-    const int n = 10;
-    int arr[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - 1 - i; j++)
-        {
-            if (arr[j + 1] < arr[j])
-            {
+//用指针将输入的两个数按大小顺序输出
+// #include <iostream>
+// using namespace std;
+// void swap(int *p1, int *p2)
+// {
+//     int t = *p1;
+//     *p1 = *p2;
+//     *p2 = t;
+// }
+// int main()
+// {
+//     int a, b, *p1 = &a, *p2 = &b;
+//     cin >> a >> b;
+//     if (a < b)
+//     {
+//         swap(p1, p2);
+//     }
+//     cout << "max=" << a << " min=" << b;
+//     return 0;
+// }
 
-                int temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-    ofstream out("m.txt");
-    for (int i = 0; i < n; i++)
-    {
-        out << arr[i] << " ";
-    }
-    out.close();
-    return 0;
-}
+//用指针对输入的三个整数按由大到小的顺序输出
+// #include <iostream>
+// using namespace std;
+// void swap(int *p1, int *p2)
+// {
+//     int t = *p1;
+//     *p1 = *p2;
+//     *p2 = t;
+// }
+// void exchange(int *p1, int *p2, int *p3)
+// {
+//     if (*p1 < *p2)
+//     {
+//         swap(p1, p2);
+//     }
+//     if (*p1 < *p3)
+//     {
+//         swap(p1, p3);
+//     }
+//     if (*p2 < *p3)
+//     {
+//         swap(p2, p3);
+//     }
+// }
+// int main()
+// {
+//     int a, b, c, *p1 = &a, *p2 = &b, *p3 = &c;
+//     cin >> a >> b >> c;
+//     exchange(p1, p2, p3);
 
-#include <iostream>
-using namespace std;
-void swap(int *p1, int *p2)
-{
-    int t = *p1;
-    *p1 = *p2;
-    *p2 = t;
-}
-int main()
-{
-    int a, b, *p1 = &a, *p2 = &b;
-    cin >> a >> b;
-    if (a < b)
-    {
-        swap(p1, p2);
-    }
-    cout << "max=" << a << " min=" << b;
-    return 0;
-}
+//     cout << a << " " << b << " " << c;
+//     return 0;
+// }
 
-#include <iostream>
-using namespace std;
-void swap(int *p1, int *p2)
-{
-    int t = *p1;
-    *p1 = *p2;
-    *p2 = t;
-}
-void exchange(int *p1, int *p2, int *p3)
-{
-    if (*p1 < *p2)
-    {
-        swap(p1, p2);
-    }
-    if (*p1 < *p3)
-    {
-        swap(p1, p3);
-    }
-    if (*p2 < *p3)
-    {
-        swap(p2, p3);
-    }
-}
-int main()
-{
-    int a, b, c, *p1 = &a, *p2 = &b, *p3 = &c;
-    cin >> a >> b >> c;
-    exchange(p1, p2, p3);
+//用指针输出数组元素
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int a[5] = {50, 40, 30, 20, 10};
+//     int *p = a;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         cout << *p << " ";
+//         p++;
+//     }
+//     return 0;
+// }
 
-    cout << a << " " << b << " " << c;
-    return 0;
-}
+//用指针输出数组元素
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+//     int a[5] = {50, 40, 30, 20, 10};
+//     int *p;
+//     for (p = a; p < a + 5; p++)
+//         cout << *p << " ";
+//     return 0;
+// }
 
-#include <iostream>
-using namespace std;
-int main()
-{
-    int a[5] = {50, 40, 30, 20, 10};
-    int *p = a;
-    for (int i = 0; i < 5; i++)
-    {
-        cout << *p << " ";
-        p++;
-    }
-    return 0;
-}
+//从键盘读入10个字符串，使用选择法对它们进行由小到大排序，并输出排序结果。（用指针的方法实现）
+// #include <iostream>
+// using namespace std;
+// void SelectSort(string arr[], int n)
+// {
+//     for (int i = 0; i < n - 1; i++)
+//     {
+//         int min = i;
+//         for (int j = i + 1; j < n; j++)
+//         {
+//             if (arr[j] < arr[min])
+//             {
+//                 min = j;
+//             }
+//         }
+//         string t = arr[i];
+//         arr[i] = arr[min];
+//         arr[min] = t;
+//     }
+// }
+// int main()
+// {
+//     int const n = 10;
+//     string arr[n];
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i];
+//     }
 
-#include <iostream>
-using namespace std;
-int main()
-{
-    int a[5] = {50, 40, 30, 20, 10};
-    int *p;
-    for (p = a; p < a + 5; p++)
-        cout << *p << " ";
-    return 0;
-}
+//     SelectSort(arr, n);
+//     for (int i = 0; i < n; i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+//     return 0;
+// }
 
-#include <iostream>
-using namespace std;
-void SelectSort(string arr[], int n)
-{
-    for (int i = 0; i < n - 1; i++)
-    {
-        int min = i;
-        for (int j = i + 1; j < n; j++)
-        {
-            if (arr[j] < arr[min])
-            {
-                min = j;
-            }
-        }
-        string t = arr[i];
-        arr[i] = arr[min];
-        arr[min] = t;
-    }
-}
-int main()
-{
-    int const n = 10;
-    string arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
-    SelectSort(arr, n);
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
-    }
-    return 0;
-}
+// //用选择法对整型数组的元素进行排序的函数。（用数组名作函数参数 ）
+// #include <iostream>
+// using namespace std;
+// void select_sort(int arr[], int n)
+// {
+//     for (int i = 0; i < n - 1; i++)
+//     {
+//         int min = i;
+//         for (int j = i + 1; j < n; j++)
+//         {
+//             if (arr[j] < arr[min])
+//             {
+//                 min = j;
+//             }
+//         }
+//         int t = arr[min];
+//         arr[min] = arr[i];
+//         arr[i] = t;
+//     }
+// }
+// int main()
+// {
+//     int a[10];
+//     for (int i = 0; i < 10; i++)
+//     {
+//         cin >> a[i];
+//     }
+//     select_sort(a, 10);
+//     for (int i = 0; i < 10; i++)
+//     {
+//         cout << a[i] << " ";
+//     }
+//     return 0;
+// }
