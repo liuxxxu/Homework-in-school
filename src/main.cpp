@@ -366,7 +366,7 @@
 //     return 0;
 // }
 
-//从键盘读入10个字符串，使用选择法对它们进行由小到大排序，并输出排序结果。（用指针的方法实现）
+//从键盘读入10个字符串，使用选择法对它们进行由小到大排序，并输出排序结果。
 // #include <iostream>
 // using namespace std;
 // void SelectSort(string arr[], int n)
@@ -394,7 +394,6 @@
 //     {
 //         cin >> arr[i];
 //     }
-
 //     SelectSort(arr, n);
 //     for (int i = 0; i < n; i++)
 //     {
@@ -439,25 +438,316 @@
 // }
 
 //用指针实现数组逆序
+// #include <iostream>
+// using namespace std;
+// void restre(int *start, int n)
+// {
+// 	int *end = start + n - 1;
+// 	while (start < end)
+// 	{
+// 		int t = *start;
+// 		*start = *end;
+// 		*end = t;
+// 		start++;
+// 		end--;
+// 	}
+// }
+// int main()
+// {
+// 	int a[5] = {1, 2, 3, 4, 5};
+// 	restre(a, 5);
+// 	for (int i = 0; i < 5; i++)
+// 		cout << a[i] << " ";
+// 	return 0;
+// }
+
+//数组实现选择排序
+// #include <iostream>
+// using namespace std;
+// void select_sort(int array[], int n)
+// {
+// 	int i, j, k, t;
+// 	for (i = 0; i < n - 1; i++)
+// 	{
+// 		k = i;
+// 		for (j = i + 1; j < n; j++)
+// 			if (array[j] < array[k])
+// 				k = j;
+// 		t = array[k];
+// 		array[k] = array[i];
+// 		array[i] = t;
+// 	}
+// }
+// int main()
+// {
+// 	int a[10], i;
+// 	cout << "enter the originl array:" << endl;
+// 	for (i = 0; i < 10; i++)
+// 		cin >> a[i];
+// 	cout << endl;
+// 	select_sort(a, 10);
+// 	cout << "the sorted array:" << endl;
+// 	for (i = 0; i < 10; i++)
+// 		cout << a[i] << "  ";
+// 	cout << endl;
+// 	return 0;
+// }
+
+//指针实现选择排序
+// #include <iostream>
+// using namespace std;
+// void select_sort(int *p, int n)
+// {
+// 	int i, j, k, t;
+// 	for (i = 0; i < n - 1; i++)
+// 	{
+// 		k = i;
+// 		for (j = i + 1; j < n; j++)
+// 			if (*(p + j) < *(p + k))
+// 				k = j;
+// 		t = *(p + k);
+// 		*(p + k) = *(p + i);
+// 		*(p + i) = t;
+// 	}
+// }
+// int main()
+// {
+// 	int a[10], i;
+// 	cout << "enter the originl array:" << endl;
+// 	for (i = 0; i < 10; i++)
+// 		cin >> a[i];
+// 	cout << endl;
+// 	select_sort(a, 10);
+// 	cout << "the sorted array:" << endl;
+// 	for (i = 0; i < 10; i++)
+// 		cout << a[i] << "  ";
+// 	cout << endl;
+// 	return 0;
+// }
+
+//求3*4矩阵中元素的最大值
+// #include <iostream>
+// using namespace std;
+// int max_value(int array[][4])
+// {
+// 	int i, j, max;
+// 	max = array[0][0];
+// 	for (i = 0; i < 3; i++)
+// 		for (j = 0; j < 4; j++)
+// 			if (array[i][j] > max)
+// 				max = array[i][j];
+// 	return max;
+// }
+// int main()
+// {
+// 	int a[3][4] = {{11, 32, 45, 67}, {22, 44, 66, 88}, {15, 72, 43, 37}};
+// 	cout << "max value is " << max_value(a) << endl;
+// 	return 0;
+// }
+
+//定义一个字符数组并输出
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+// 	char str[] = "I love CHINA!";
+// 	cout << str << endl;
+// 	return 0;
+// }
+
+//定义一个字符串变量并输出
+// #include <iostream>
+// #include <string>
+// using namespace std;
+// int main()
+// {
+// 	string str = "I love CHINA!";
+// 	cout << str << endl;
+// 	return 0;
+// }
+
+//定义一个字符指针变量并输出其指向的字符串
+// #include <iostream>
+// using namespace std;
+// int main()
+// {
+// 	char *str = "I love CHINA!";
+// 	cout << str << endl;
+// 	cout << str + 2; //love CHINA!
+// 	return 0;
+// }
+
+//编写函数用起泡法对实型数组元素进行由大到小排序，并用主函数调用它。
+// #include <iostream>
+// using namespace std;
+// void bubble_sort(int arr[], int n)
+// {
+// 	for (int i = 0; i < n - 1; i++)
+// 	{
+// 		for (int j = 0; j < n - 1 - i; j++)
+// 		{
+// 			if (arr[j] < arr[j + 1])
+// 			{
+// 				int temp = arr[j];
+// 				arr[j] = arr[j + 1];
+// 				arr[j + 1] = temp;
+// 			}
+// 		}
+// 	}
+// }
+// int main()
+// {
+// 	const int n = 10;
+// 	int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+// 	bubble_sort(arr, n);
+// 	for (int i = 0; i < n; i++)
+// 		cout << arr[i] << " ";
+// 	return 0;
+// }
+
+//编写函数求一个保存在字符数组中的字符串的长度，并用主函数调用它。
+// #include <iostream>
+// using namespace std;
+// int my_strlen(char *str)
+// {
+// 	int len = 0;
+// 	while (*str != '\0')
+// 	{
+// 		len++;
+// 		str++;
+// 	}
+// 	return len;
+// }
+// int main()
+// {
+// 	char ch[] = "hello";
+// 	cout << my_strlen(ch);
+// 	return 0;
+// }
+
+//编写函数求整型二维数组中最大元素及其下标，并用主函数调用它。
+// #include <iostream>
+// using namespace std;
+// const int row = 3;
+// const int column = 4;
+// void max(int arr[row][column])
+// {
+// 	int max = arr[0][0], x, y;
+// 	for (int i = 0; i < row; i++)
+// 	{
+// 		for (int j = 0; j < column; j++)
+// 		{
+// 			if (arr[i][j] > max)
+// 			{
+// 				max = arr[i][j];
+// 				x = i;
+// 				y = j;
+// 			}
+// 		}
+// 	}
+// 	cout << max << " " << x << " " << y;
+// }
+// int main()
+// {
+// 	int arr[row][column] = {{1, 4, 7, 8}, {5, 2, 0, 3}, {6, 9, 11, 10}};
+// 	max(arr);
+// 	return 0;
+// }
+
+/*有n个整数，使前面各数顺序向后移m个位置，最后m个数变成最前面m个数。
+编写函数实现以上功能，在主函数中输入n个整数和m，并输出调整后的n个数。*/
+// #include <iostream>
+// using namespace std;
+// void move(int a[], int n, int m)
+// {
+// 	int b[100], i;
+// 	for (i = 0; i < m; i++)
+// 	{
+// 		b[i] = a[n - m + i];
+// 	}
+// 	for (i = n - 1; i >= m; i--)
+// 	{
+// 		a[i] = a[i - m];
+// 	}
+// 	for (i = 0; i < m; i++)
+// 	{
+// 		a[i] = b[i];
+// 	}
+// }
+// int main()
+// {
+// 	int a[100], n, m, i;
+// 	cin >> n >> m;
+// 	for (i = 0; i < n; i++)
+// 	{
+// 		cin >> a[i];
+// 	}
+// 	move(a, n, m);
+// 	for (i = 0; i < n; i++)
+// 	{
+// 		cout << a[i] << " ";
+// 	}
+// 	return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+// void move(int a[], int n, int m)
+// {
+// 	for (int i = 0; i < m; i++)
+// 	{
+// 		int temp = a[n - 1];
+// 		for (int j = n - 1; j >= 0; j--)
+// 		{
+// 			a[j] = a[j - 1];
+// 		}
+// 		a[0] = temp;
+// 	}
+// }
+// int main()
+// {
+// 	int n, m;
+// 	cin >> n >> m;
+// 	int a[] = {0};
+// 	for (int i = 0; i < n; i++)
+// 	{
+// 		cin >> a[i];
+// 	}
+// 	move(a, n, m);
+// 	for (int j = 0; j < n; j++)
+// 	{
+// 		cout << a[j] << " ";
+// 	}
+// 	system("pause");
+// 	return 0;
+// }
+
+//将数组中的数后移几位
 #include <iostream>
 using namespace std;
-void restre(int *start, int n)
-{
-	int *end = start + n - 1;
-	while (start < end)
-	{
-		int t = *start;
-		*start = *end;
-		*end = t;
-		start++;
-		end--;
-	}
-}
 int main()
 {
-	int a[5] = {1, 2, 3, 4, 5};
-	restre(a, 5);
-	for (int i = 0; i < 5; i++)
+	int n, m;
+	cin >> n >> m;
+	int a[] = {0};
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		int temp = a[9]; //备份
+		for (int j = 9; j >= 0; j--)
+		{
+			a[j] = a[j - 1]; //向后移
+		}
+		a[0] = temp; //备份的那位放到前面
+	}
+	for (int i = 0; i < 10; i++)
+	{
 		cout << a[i] << " ";
+	}
+	system("pause");
 	return 0;
 }
