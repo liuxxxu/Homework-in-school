@@ -656,98 +656,97 @@
 
 /*有n个整数，使前面各数顺序向后移m个位置，最后m个数变成最前面m个数。
 编写函数实现以上功能，在主函数中输入n个整数和m，并输出调整后的n个数。*/
-// #include <iostream>
-// using namespace std;
-// void move(int a[], int n, int m)
-// {
-// 	int b[100], i;
-// 	for (i = 0; i < m; i++)
-// 	{
-// 		b[i] = a[n - m + i];
-// 	}
-// 	for (i = n - 1; i >= m; i--)
-// 	{
-// 		a[i] = a[i - m];
-// 	}
-// 	for (i = 0; i < m; i++)
-// 	{
-// 		a[i] = b[i];
-// 	}
-// }
-// int main()
-// {
-// 	int a[100], n, m, i;
-// 	cin >> n >> m;
-// 	for (i = 0; i < n; i++)
-// 	{
-// 		cin >> a[i];
-// 	}
-// 	move(a, n, m);
-// 	for (i = 0; i < n; i++)
-// 	{
-// 		cout << a[i] << " ";
-// 	}
-// 	return 0;
-// }
+/*
+#include <iostream>
+using namespace std;
+void move(int a[], int n, int m)
+{
+	int b[100], i;
+	for (i = 0; i < m; i++)
+	{
+		b[i] = a[n - m + i];
+	}
+	for (i = n - 1; i >= m; i--)
+	{
+		a[i] = a[i - m];
+	}
+	for (i = 0; i < m; i++)
+	{
+		a[i] = b[i];
+	}
+}
+int main()
+{
+	int a[100], n, m, i;
+	cin >> n >> m;
+	for (i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	move(a, n, m);
+	for (i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}
+	return 0;
+}
 
-// #include <iostream>
-// using namespace std;
-// void move(int a[], int n, int m)
-// {
-// 	for (int i = 0; i < m; i++)
-// 	{
-// 		int temp = a[n - 1];
-// 		for (int j = n - 1; j >= 0; j--)
-// 		{
-// 			a[j] = a[j - 1];
-// 		}
-// 		a[0] = temp;
-// 	}
-// }
-// int main()
-// {
-// 	int n, m;
-// 	cin >> n >> m;
-// 	int a[] = {0};
-// 	for (int i = 0; i < n; i++)
-// 	{
-// 		cin >> a[i];
-// 	}
-// 	move(a, n, m);
-// 	for (int j = 0; j < n; j++)
-// 	{
-// 		cout << a[j] << " ";
-// 	}
-// 	system("pause");
-// 	return 0;
-// }
+#include <iostream>
+using namespace std;
+void move(int a[], int n, int m)
+{
+	for (int i = 0; i < m; i++)
+	{
+		int temp = a[n - 1];
+		for (int j = n - 1; j >= 0; j--)
+		{
+			a[j] = a[j - 1];
+		}
+		a[0] = temp;
+	}
+}
+int main()
+{
+	int n, m;
+	cin >> n >> m;
+	int a[100];
+	for (int i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	move(a, n, m);
+	for (int j = 0; j < n; j++)
+	{
+		cout << a[j] << " ";
+	}
+	return 0;
+}
+*/
 
-//将数组中的数后移几位
+//将数组中n个数后移m位
+/*
 #include <iostream>
 using namespace std;
 int main()
 {
 	int n, m;
 	cin >> n >> m;
-	int a[] = {0};
+	int arr[100];
 	for (int i = 0; i < n; i++)
 	{
-		cin >> a[i];
+		cin >> arr[i];
 	}
-
-	for (int i = 0; i < 2; i++)
-	{
-		int temp = a[9]; //备份
-		for (int j = 9; j >= 0; j--)
+	while (m-- != 0)
+	{ //向后移动 每一位和最后一位交换
+		for (int i = 0; i < n; i++)
 		{
-			a[j] = a[j - 1]; //向后移
+			int t = arr[n - 1];
+			arr[n - 1] = arr[i];
+			arr[i] = t;
 		}
-		a[0] = temp; //备份的那位放到前面
 	}
-	for (int i = 0; i < 10; i++)
-	{
-		cout << a[i] << " ";
-	}
-	system("pause");
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
 	return 0;
 }
+*/
