@@ -750,3 +750,134 @@ int main()
 	return 0;
 }
 */
+
+/*
+//交换两个数的三种方式
+//传值调用
+#include <iostream>
+using namespace std;
+void swap(int x, int y)
+{
+	int t;
+	t = x;
+	x = y;
+	y = t;
+}
+int main()
+{
+	int a = 3, b = 5;
+	swap(a, b);
+	cout << a << " " << b;
+	return 0;
+}
+//传址调用
+#include <iostream>
+using namespace std;
+void swap(int *q1, int *q2)
+{
+	int t;
+	t = *q1;
+	*q1 = *q2;
+	*q2 = t;
+}
+int main()
+{
+	int a = 3, b = 5;
+	swap(&a, &b);
+	cout << a << " " << b;
+	return 0;
+}
+//引用调用
+#include <iostream>
+using namespace std;
+void swap(int &x, int &y)
+{
+	int t;
+	t = x;
+	x = y;
+	y = t;
+}
+int main()
+{
+	int a = 3, b = 5;
+	swap(a, b);
+	cout << a << " " << b;
+	return 0;
+}
+*/
+
+/*
+//分析下面程序的输出结果。
+#include <iostream>
+using namespace std;
+void fun(int &x, int *y, int z)
+{
+	int t = 3;
+	x = t * x;
+	*y = *y % t;
+	z = z / t;
+}
+int main()
+{
+	int a = 3, b = 5, c = 7;
+	fun(a, &b, c);
+	cout << a << "," << b << "," << c << endl;
+	return 0;
+}
+9,2,7
+*/
+
+/*
+//结构体应用
+#include <iostream>
+#include <string>
+using namespace std;
+struct student
+{
+	int num;
+	string name;
+	char sex;
+	double height;
+};
+int main()
+{
+	student s1;
+	s1.num = 666;
+	s1.name = "lx";
+	s1.sex = 'M';
+	s1.height = 1.75;
+	cout << "学号" << s1.num << endl;
+	cout << "姓名" << s1.name << endl;
+	cout << "性别" << s1.sex << endl;
+	cout << "身高" << s1.height << endl;
+	system("pause");
+	return 0;
+}
+
+#include <iostream>
+#include <string>
+using namespace std;
+struct scoreList
+{
+	string name;
+	int num;
+	double chineseScore;
+	double mathScore;
+	double englishScore;
+};
+int main()
+{
+	scoreList s1;
+	s1.name = "李明";
+	s1.num = 123;
+	s1.chineseScore = 80.5;
+	s1.mathScore = 90;
+	s1.englishScore = 95;
+	cout << "姓名:" << s1.name << endl;
+	cout << "学号:" << s1.num << endl;
+	cout << "语文成绩:" << s1.chineseScore << endl;
+	cout << "数学成绩:" << s1.mathScore << endl;
+	cout << "英语成绩:" << s1.englishScore << endl;
+	return 0;
+}
+*/
