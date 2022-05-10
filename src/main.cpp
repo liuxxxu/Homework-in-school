@@ -881,3 +881,204 @@ int main()
 	return 0;
 }
 */
+
+/*
+//设有3个候选人Li、Zhang、Fan，今有10个人参加投票, 从键盘输入这10个人所投的候选人的名字，统计并输出投票结果
+#include <iostream>
+#include <cstring>
+using namespace std;
+struct Person
+{
+	string name;
+	int count;
+};
+int main()
+{
+	Person leader[3] = {{"Li", 0}, {"Zhang", 0}, {"Fan", 0}};
+	string name;
+	for (int i = 0; i < 10; i++)
+	{
+		cin >> name;
+		for (int j = 0; j < 3; j++)
+		{
+			if (name == leader[j].name)
+			{
+				leader[j].count++;
+				break;
+			}
+		}
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		cout << leader[i].name << " " << leader[i].count << endl;
+	}
+	system("pause");
+	return 0;
+}
+*/
+
+/*
+//计算某一日是该年的第几天，用结构体和数组相关知识
+#include <iostream>
+using namespace std;
+struct
+{
+	int year;
+	int month;
+	int day;
+} date;
+int main()
+{
+	int num = 0;
+	cin >> date.year >> date.month >> date.day;
+	int day[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	for (int i = 0; i < date.month - 1; i++)
+	{
+		num += day[i];
+	}
+	if ((date.year % 4 == 0 && date.year % 100 != 0) || (date.year % 400 == 0))
+	{
+		num += 1;
+	}
+	num += date.day;
+	cout << date.year << "年" << date.month << "月" << date.day << "日是该年第" << num << "天" << endl;
+	return 0;
+}
+*/
+
+/*
+
+//职工数据包括：职工号、职工姓名、性别、年龄、工龄、工资、通讯地址。
+//a.定义一个结构体变量，从键盘输入个数据项的值，再显示出来。
+//b.编制程序使用结构体数组从键盘输入10个职工的信息，然后写入文件“zhgxx.txt”.
+//c.将文件“zhgxx.txt”中的职工信息读入，并输出工龄最长的职工的所有信息。
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+struct employee
+{
+	int num;
+	string name;
+	string sex;
+	int age;
+	int workYear;
+	int salary;
+	string address;
+} e1, e[10];
+int main()
+{
+	cin >> e1.num >> e1.name >> e1.sex >> e1.age >> e1.workYear >> e1.salary >> e1.address;
+	cout << e1.num << " " << e1.name << " " << e1.sex << " " << e1.age << " " << e1.workYear << " " << e1.salary << " " << e1.address;
+	ofstream out("zhgxx.txt");
+	if (!out)
+	{
+		cout << "open error!" << endl;
+		exit(1);
+	}
+	for (int i = 0; i < 10; i++)
+	{
+		cin >> e[i].num >> e[i].name >> e[i].sex >> e[i].age >> e[i].workYear >> e[i].salary >> e[i].address;
+		out << e[i].num << " " << e[i].name << " " << e[i].sex << " " << e[i].age << " " << e[i].workYear << " " << e[i].salary << " " << e[i].address;
+		out << endl;
+	}
+	out.close();
+	ifstream in("zhgxx.txt");
+	if (!in)
+	{
+		cout << "open error!" << endl;
+		exit(1);
+	}
+	int maxWorkYear = 0, i, j;
+	for (i = 0; i < 10; i++)
+	{
+		in >> e[i].num >> e[i].name >> e[i].sex >> e[i].age >> e[i].workYear >> e[i].salary >> e[i].address;
+		if (e[i].workYear > maxWorkYear)
+		{
+			maxWorkYear = e[i].workYear;
+			j = i;
+		}
+	}
+	cout << e[j].num << " " << e[j].name << " " << e[j].sex << " " << e[j].age << " " << e[j].workYear << " " << e[j].salary << " " << e[j].address;
+	in.close();
+	return 0;
+}
+*/
+
+/*
+//读入文件"student.data"中所有学生的信息，每个学生包括学号、姓名、性别、年龄、三门课程成绩。
+//编写函数compute,计算每个学生的总分和平均分，再定义函数sort按照平均成绩从高到低进行排序，
+//定义函数fwrite将每个学生的上述信息再加上计算得到的总分和平均分按名次写入到新的文件"studentscore.data"。
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+struct student
+{
+	int num;
+	string name;
+	string sex;
+	int age;
+	int score1;
+	int score2;
+	int score3;
+} stu[100], temp;
+int compute(int a, int b, int c)
+{
+	int sum = a + b + c;
+	return sum;
+}
+void sort(student *stu, int count)
+{
+	for (int i = 0; i < count - 1; i++)
+	{
+		for (int j = 0; j < count - 1 - i; j++)
+		{
+			if (compute(stu[j + 1].score1, stu[j + 1].score2, stu[j + 1].score3) > compute(stu[j].score1, stu[j].score2, stu[j].score3))
+			{
+				temp = stu[j];
+				stu[j] = stu[j + 1];
+				stu[j + 1] = temp;
+			}
+		}
+	}
+}
+void fwrite(student *stu, int count, int *sum, double *ave, ofstream &out)
+{
+	for (int i = 0; i < count; i++)
+	{
+		sum[i] = compute(stu[i].score1, stu[i].score2, stu[i].score3);
+		ave[i] = sum[i] / 3.0;
+		out << stu[i].num << " " << stu[i].name << " " << stu[i].sex << " " << stu[i].age << " " << stu->score1 << " " << stu->score2 << " " << stu[i].score3 << " " << sum[i] << " " << ave[i] << endl;
+	}
+}
+int main()
+{
+	ifstream in("student.txt");
+	if (!in)
+	{
+		cout << "open error!" << endl;
+		exit(1);
+	}
+	int sum[100], count = 0;
+	double ave[100];
+	for (int i = 0; !in.eof(); i++)
+	{
+		in >> stu[count].num >> stu[count].name >> stu[count].sex >> stu[count].age >> stu[count].score1 >> stu[count].score2 >> stu[count].score3;
+		sum[count] = compute(stu[count].score1, stu[count].score2, stu[count].score3);
+		ave[count] = sum[count] / 3.0;
+		count++;
+	}
+	in.close();
+	sort(stu, count);
+	ofstream out("studentscore.data");
+	if (!out)
+	{
+		cout << "open error!" << endl;
+		exit(1);
+	}
+	fwrite(stu, count, sum, ave, out);
+	out.close();
+	return 0;
+}
+*/
