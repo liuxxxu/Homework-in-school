@@ -1082,3 +1082,322 @@ int main()
 	return 0;
 }
 */
+
+/*
+//有两个n（1≤n≤100）个元素的一维数组A和B，其中A来自输入，将其“赋值”给B（即元素一一复制到B中），输出B数组下标为奇数的元素。
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a[100], b[100];
+	int n, i;
+	cin >> n;
+	for (i = 0; i < n; i++)
+	{
+		cin >> a[i];
+		b[i] = a[i];
+	}
+	for (i = 1; i < n; i += 2)
+	{
+		cout << b[i] << " ";
+	}
+	return 0;
+}
+*/
+
+/*
+//输出一个nxn（1≤n≤100）二维数组A左上角的元素（元素值不超过9）
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a[100][100];
+	int n, i, j;
+	cin >> n;
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < n; j++)
+		{
+			cin >> a[i][j];
+		}
+	}
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < n - i; j++)
+		{
+			cout << a[i][j] << " ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
+*/
+
+/*
+//计算一个NxM（1≤N、M≤100）二维数组A所有边沿元素的和s1，所有内芯元素的和s2，输出s1-s2
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a[100][100];
+	int n, m, i, j, s1 = 0, s2 = 0;
+	cin >> n >> m;
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < m; j++)
+		{
+			cin >> a[i][j];
+		}
+	}
+	for (i = 0; i < n; i++)
+	{
+		for (j = 0; j < m; j++)
+		{
+			if (i == 0 || i == n - 1 || j == 0 || j == m - 1)
+			{
+				s1 += a[i][j];
+			}
+			else
+			{
+				s2 += a[i][j];
+			}
+		}
+	}
+	cout << s1 - s2;
+	return 0;
+}
+*/
+
+/*
+//编写一个函数double avg(int A[],int s,int e)，计算一个N（1≤N≤100）个元素的一维数组A，
+//从第s个（以0为开始，下同），到第e个元素的平均值，其中0≤s＜e＜N。在主函数输入输出，调用函数avg计算。
+#include <iostream>
+#include <iomanip>
+using namespace std;
+double average(int A[], int s, int e)
+{
+	double sum = 0;
+	int i;
+	for (i = s; i <= e; i++)
+	{
+		sum += A[i];
+	}
+	return sum / (e - s + 1);
+}
+int main()
+{
+	int a[100];
+	int n, s, e, i;
+	double avg;
+	cin >> n;
+	for (i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	cin >> s >> e;
+	avg = average(a, s, e);
+	cout << fixed << setprecision(6) << avg;
+	return 0;
+}
+*/
+
+/*
+//编写一个函数void BubbleSort(int A[],int s,int m)，能够从数组A第s个（以0为开始）元素起始，
+//连续m个元素使用冒泡法降序排序。数组A最多有N（1≤N≤100）个元素，0≤s＜N，且s+m≤N。在主函数输入输出，调用函数BubbleSort求解。
+#include <iostream>
+using namespace std;
+void BubbleSort(int arr[], int s, int m)
+{
+	int i, j;
+	for (int i = s; i < s+m-1; i++)
+	{
+		for (int j = s; j < s+m-1; j++)
+		{
+			if (arr[j+1]>arr[j])
+			{
+				int t = arr[j + 1];
+				arr[j + 1] = arr[j];
+				arr[j] = t;
+			}
+		}
+	}
+}
+int main()
+{
+	int a[100];
+	int n, s, m, i;
+	cin >> n;
+	for (i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	cin >> s >> m;
+	BubbleSort(a, s, m);
+	for (i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}
+	return 0;
+}
+*/
+
+/*
+//编写一个函数void SelectionSort(int A[],int s,int m)，能够从数组A第s个（以0为开始）元素起始，
+//连续m个元素使用选择法降序排序。数组A最多有N（1≤N≤100）个元素，0≤s＜N，且s+m≤N。在主函数输入输出，调用函数SelectionSort求解。
+#include <iostream>
+using namespace std;
+void SelectionSort(int arr[], int s, int m)
+{
+	int i, j, min;
+	for (i = s; i < s+m-1; i++)
+	{
+		min = i;
+		for (j = i+1; j < s + m; j++)
+		{
+			if (arr[j] > arr[min])
+				min = j;
+		}
+			int t = arr[i];
+			arr[i] = arr[min];
+			arr[min] = t;
+	}
+}
+int main()
+{
+
+	int a[100], n, s, m, i;
+	cin >> n;
+	for (i = 0; i < n; i++)
+	{
+		cin >> a[i];
+	}
+	cin >> s >> m;
+	SelectionSort(a, s, m);
+	for (i = 0; i < n; i++)
+	{
+		cout << a[i] << " ";
+	}
+	return 0;
+}
+*/
+
+/*
+//题目内容：比基堡海滩有一个有n个触手的恐怖水母，蟹老板希望雇佣一些海绵宝宝把它杀死（即砍掉所有触手）。现在有m个海绵宝宝可以雇佣，
+//一个能力值为x的海绵宝宝可以砍掉恐怖水母一只直径不超过x的触手，且需要支付x个金币。如何雇佣海绵宝宝才能杀死水母，
+//并且支付的金币最少？需要注意一个海绵宝宝只能砍掉一只触手，并且不能被雇佣两次。
+//输入格式：第1行为正整数n和m，第2行为水母n只触手的直径，第3行为m个海绵宝宝的能力值，所有数据用空格间隔。
+//输出格式：输出最少金币数。如果无解，输出NULL
+#include <iostream>
+using namespace std;
+void BubbleSort(int A[], int s)
+{
+	int i, j, t;
+	for (i = 0; i < s - 1; i++)
+	{
+		for (j = 0; j < s - 1 - i; j++)
+		{
+			if (A[j] > A[j + 1])
+			{
+				t = A[j];
+				A[j] = A[j + 1];
+				A[j + 1] = t;
+			}
+		}
+	}
+}
+int main()
+{
+	int a[5], b[10], n, m, k, i, j, s = 0;
+	cin >> n >> m;
+	for (i = 0; i < n; i++)
+		cin >> a[i];
+	for (j = 0; j < m; j++)
+		cin >> b[j];
+	BubbleSort(a, n);
+	BubbleSort(b, m);
+	for (i = 0; i < n; i++)
+	{
+		for (j = i; j < m; j++)
+		{
+			if (a[i] <= b[j])
+			{
+				s = s + b[j];
+				break;
+			}
+		}
+	}
+	if (a[0] > b[m - 1])
+		cout << "NULL" << endl;
+	else
+		cout << s << endl;
+	return 0;
+}
+*/
+
+/*
+//山迪要出席一个周末表演晚会，他在会上要表演卡片魔术。他有n（0＜n≤100）张卡片，每张卡片上都标明了1～1000之间的某个数字，
+//这n张卡片本来是有序的，可是山迪的助手不小心把卡片打乱了。这可急坏了山迪，忙令助手迅速通过一些操作把这些卡片变回有序的，
+//而山迪的助手是个思想简单的人，他能做的操作只有一种：交换任意两张卡片的位置。
+//现在，山迪想知道助手最少交换几次可以达到目的，以便尽快决定是否替换这个魔术表演，聪明的你能帮助他么？
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a[100], n, i, j, count = 0;
+	cin >> n;
+	for (i = 0; i < n; i++)
+		cin >> a[i];
+	for (i = 0; i < n - 1; i++)
+	{
+		for (j = 0; j < n - 1 - i; j++)
+		{
+			if (a[j] > a[j + 1])
+			{
+
+				int t = a[j];
+				a[j] = a[j + 1];
+				a[j + 1] = t;
+				count++;
+			}
+		}
+	}
+	cout << count;
+	return 0;
+}
+*/
+
+/*
+//有一个N（1≤N≤100）个元素的数组A，按由小到大顺序存放。请编写程序，输入一个数m，用二分查找法找出该数在数组中的位置
+//（即数组的下标）。如果该数不在数组中，则输出null。
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n, a[100], m, i;
+	cin >> n;
+	for (i = 0; i < n; i++)
+		cin >> a[i];
+	int l = n - 1, left = 0, right = l - 1, mid;
+	cin >> m;
+	while (left <= right)
+	{
+		mid = (left + right) / 2;
+		if (a[mid] < m)
+		{
+			left = mid + 1;
+		}
+		else if (a[mid] > m)
+		{
+			right = mid - 1;
+		}
+		else
+		{
+			break;
+		}
+	}
+	if (left > right)
+		cout << "null";
+	else
+		cout << mid << endl;
+}
+*/
