@@ -1401,3 +1401,209 @@ int main()
 		cout << mid << endl;
 }
 */
+
+/*
+//某商店经销一种货物，货物成箱购进，成箱卖出，购进和卖出时以重量为单位，各箱的重量不一样，
+//因此，商店需要记录下目前库存的货物的总重量，现在要求用C++语言来模拟商店货物购进和卖出的情况。
+#include <iostream>
+using namespace std;
+class Goods
+{
+public:
+	Goods(int w);
+	~Goods();
+	int Weight();
+	static int TotalWeight();
+
+private:
+	int weight;
+	static int totalWeight;
+};
+Goods::Goods(int w)
+{
+	weight = w;
+	totalWeight += w;
+}
+Goods::~Goods()
+{
+	totalWeight -= weight;
+}
+int Goods::Weight()
+{
+	return weight;
+}
+int Goods::TotalWeight()
+{
+	return totalWeight;
+}
+int Goods::totalWeight = 0;
+int main()
+{
+	int w;
+	cin >> w;
+	Goods g1(w);
+	cin >> w;
+	Goods g2(w);
+	cout << Goods::TotalWeight() << endl;
+	return 0;
+}
+*/
+
+/*
+//计算两个时刻相差的秒数
+#include <iostream>
+#include <cmath>
+using namespace std;
+class Time
+{
+public:
+	Time(int x, int y, int z) : hour(x), min(y), sec(z) {}
+	friend int operator-(Time &, Time &);
+	void ShowTime();
+
+private:
+	int hour, min, sec;
+};
+int operator-(Time &t1, Time &t2)
+{
+	int s1 = 0, s2 = 0;
+	s1 = t1.hour * 3600 + t1.min * 60 + t1.sec;
+	s2 = t2.hour * 3600 + t2.min * 60 + t2.sec;
+	return abs(s1 - s2);
+}
+void Time::ShowTime()
+{
+	cout << hour << ":" << min << ":" << sec << endl;
+}
+int main()
+{
+	Time t1(10, 30, 40), t2(9, 40, 50);
+	int s = t1 - t2;
+	t1.ShowTime();
+	t2.ShowTime();
+	cout << "两个时刻的时间差为：" << s << "秒" << endl;
+	system("pause");
+	return 0;
+}
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+class Time
+{
+public:
+	Time(int x, int y, int z) : hour(x), min(y), sec(z) {}
+	friend int operator-(Time &, Time &);
+	void ShowTime();
+
+private:
+	int hour, min, sec;
+};
+int operator-(Time &t1, Time &t2)
+{
+	int s = 0;
+	if (t1.sec > t2.sec)
+	{
+		s += (t1.sec - t2.sec);
+	}
+	else
+	{
+		s += (60 - t2.sec) + t1.sec;
+		t1.min--;
+	}
+	if (t1.min > t2.min)
+	{
+		s += (t1.min - t2.min) * 60;
+	}
+	else
+	{
+		s += ((60 - t2.min) + t1.min) * 60;
+		t1.hour--;
+	}
+	s += (t1.hour - t2.hour) * 60 * 60;
+	return abs(s);
+}
+void Time::ShowTime()
+{
+	cout << hour << ":" << min << ":" << sec << endl;
+}
+int main()
+{
+	Time t1(9, 40, 50), t2(10, 30, 40);
+	int s = t1 - t2;
+	t1.ShowTime();
+	t2.ShowTime();
+	cout << "两个时刻的时间差为：" << s << "秒" << endl;
+	return 0;
+}
+*/
+
+/*
+//对时间的秒进行++
+#include <iostream>
+using namespace std;
+class Time
+{
+public:
+	Time(int x, int y, int z) : hour(x), min(y), sec(z) {}
+	void showTime()
+	{
+		cout << hour << ":" << min << ":" << sec << endl;
+	}
+	Time operator++()
+	{
+		++sec;
+		if (sec == 60)
+		{
+			++min;
+			sec = 0;
+		}
+		if (min == 60)
+		{
+			++hour;
+			min = 0;
+		}
+		if (hour == 24)
+		{
+			hour = 0;
+		}
+		return Time(hour, min, sec);
+	}
+	Time operator++(int)
+	{
+		Time T(hour, min, sec);
+		++sec;
+		if (sec == 60)
+		{
+			++min;
+			sec = 0;
+		}
+		if (min == 60)
+		{
+			++hour;
+			min = 0;
+		}
+		if (hour == 24)
+		{
+			hour = 0;
+		}
+		return T;
+	}
+
+private:
+	int hour, min, sec;
+};
+int main()
+{
+	Time T1(11, 59, 59), T2(23, 59, 59);
+	++T1;
+	T1.showTime();
+	T1++;
+	T1.showTime();
+	++T2;
+	T2.showTime();
+	T2++;
+	T2.showTime();
+	return 0;
+}
+*/
